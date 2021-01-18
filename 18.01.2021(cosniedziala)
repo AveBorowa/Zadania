@@ -1,0 +1,47 @@
+#include <iostream>
+#include <fstream>
+
+
+using namespace std;
+
+
+bool pierwsza(int liczba)
+{
+
+ifstream plik1("D:\C++\a.txt");
+if (!liczba)
+    {
+        cout << "Nie mozna otworzyc pliku";
+        getchar();
+        return 1;
+    }
+
+ofstream plik2("D:\C++\wynik.txt");
+
+ plik1.open("D:\C++\a.txt");
+ plik2.open("D:\C++\wynik.txt");
+
+plik1>>liczba;
+
+while(!plik1.eof())
+{
+    for (int i=2; i<liczba/2; i++)
+     if (liczba %i == 0)
+     {
+           plik2  << "złożona";
+           return false;
+     }
+    plik2 << "pierwsza";
+    return true;
+
+plik1.close();
+plik2.close();
+
+
+}
+}
+
+int main()
+{
+   return 0;
+}
