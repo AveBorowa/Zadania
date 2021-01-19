@@ -1,0 +1,30 @@
+#include "mbed.h"
+BusOut leds(LED1, LED2, LED3, LED4, p5, p6, p7, p8);
+
+int main() 
+{
+    uint8_t binary = 0b00000101;
+    leds = binary;
+
+    while(){
+        wait(0.5);
+        if(binary == 0b1000000) 
+
+        {
+            binary = 0b10100000;
+            leds = binary;
+            while(binary != 0b00000001){
+                wait(0.5);
+                binary >>= 1;
+                leds = binary;
+           }
+
+          if(binary == 0b00000001)
+                wait(0.5);
+                binary = 0b00000101;
+                leds = binary;
+        }
+        else {
+            binary <<= 1;
+            leds = binary;
+}}};
