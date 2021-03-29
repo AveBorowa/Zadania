@@ -1,0 +1,98 @@
+Niezbyt chce działać i program jedynie rozkłada liczbe i wyszukuje z tablicy te same elementy, lecz coś sie zepsuło kiedy zacząłem to sobie robić w void.
+Ogólnie jak zacząłem przerabiać na void to przestało działać, a nie było już czasu niestety na poprawki
+
+
+
+
+#include <cstdlib>
+#include <iostream>
+#include <ctime>
+#include<iostream>
+#include<cmath>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+void raf(int licznik, mianownik, pierw, drug, xjed=2, xdw=2, x=0 , z=0){
+    
+ 	vector<int> tab[100];
+ 	vector<int> tab2[100];
+ 	
+        cout<<"Podaj licznik: "<<endl;
+        cin>>licznik;
+        cout<<"Podaj mianownik: "<<endl;
+        cin>>mianownik;
+        
+        pierw = sqrt(licznik);
+        drug = sqrt(mianownik);
+ 
+        cout<<"Czynniki liczby "<<licznik<<": ";
+ 
+ 
+        while(licznik>1&&xjed<=pierw)
+        {
+                while(licznik%xjed==0)
+                {
+                        cout<<xjed<<" ";
+                        licznik/=xjed;
+                        licznik>>tab[x];
+                }
+                ++xjed;
+                
+                x=x+1;
+                
+        }if(licznik>1)
+               cout<<licznik<<endl;
+ 
+ 
+ 		 cout<<"Czynniki liczby "<<mianownik<<": ";
+      	
+        while(mianownik>1&&xdw<=drug)
+        {
+                while(mianownik%xdw==0)
+                {
+                        cout<<xdw<<" ";
+                        mianownik/=xdw;
+                        mianownik>>tab2[z];
+                }
+                ++xdw;
+                
+               z=z+1;
+                
+        }if(mianownik>1)
+               cout<<mianownik<<endl;
+}       
+       
+   
+void znajdzWspolneElementy(int* tab, int n1, int* tab2, int n2) {
+  int i1 = 0, i2 = 0;
+  while (i1 < n1 && i2 < n2) {
+    if (tab[i1] == tab2[i2]) {
+      cout << tab[i1] << " ";
+      i1++;
+      i2++;
+    } else {
+      if (tab[i1] < tab2[i2]) {
+        i1++;
+      }}}}
+
+int* wczytajTablice(int i, int &n) {
+  cout << i=x << " = ";
+  cin >> n;
+  int* tab = new int[n];
+  for (int i = 0; i < n; i++)
+    cin >> tab[i];
+  return tab;       
+}
+
+int main()
+{
+ raf();
+ int n1, n2;
+  int* tab = wczytajTablice(1, n1);
+  int* tab2 = wczytajTablice(2, n2);
+  znajdzWspolneElementy(tab, n1, tab2, n2);
+  
+  
+  return 0;
+}
