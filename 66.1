@@ -1,37 +1,45 @@
 #include <iostream>
+
 #include <fstream>
-#define X 1000
-#define Y 3
 
 using namespace std;
 
+ifstream liczby("trojki.txt");
 
-int main()
-{
- int t[Y][X];
- 
- fstream plik;
- 
- plik.open("trojki.txt");
- if (!plik.good()) cout << "Brak pliku!";
-   else {
-     for (int i=0; i<X;i++)
-     plik >> t[0][i] >> t[1][i] >> t[2][i];
+int main() {
+int a,b,c;
+int _a,_b,_c;
+int s1,s2;
+
+while (liczby >> a >> b >> c) {
+ _a = a,
+ _b = b,
+ _c = c;
+
+ s1=0,s2=0;
+
+ while (a >= 10 || b >= 10 || c >= 10) {
+  if (a>=10) {
+   s1 += a%10;
+   a = a/10;
+   
+  } else if ( b >= 10) {
+   s1 += b%10;
+   b = b/10;
+
+  } else if (c >= 10) {
+   s2 += c%10;
+   c = c/10;
+   
+};};
+
+ s1 += a += b;
+ s2 += c;
+
+ if (s1 == s2) {
+  cout << _a << " " << _b << " " << _c << endl;
  }
- plik.close();
-
-
- int wiersz=0;
- for (int i=0; i<X;i++)
-   if ((t[0][i] < t[1][i]) && (t[1][i] < t[2][i])) {
-     cout << t[0][i] << " " << t[1][i] << " " << t[2][i] << endl;
-     wiersz++;
-   }
-   
-   
- fstream wynik;
- wynik.open("wynik.txt", ios::out);
- wynik << wiersz << endl;
- wynik.close();
- return 0;
+};
+return 0;
 }
+
