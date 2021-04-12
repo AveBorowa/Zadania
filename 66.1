@@ -1,0 +1,29 @@
+#include <iostream>
+#include <fstream>
+#define X 1000
+#define Y 3
+using namespace std;
+int main()
+{
+ int t[Y][X];
+ fstream plik;
+ plik.open("trojki.txt");
+ if (!plik.good()) cout << "Brak pliku!";
+   else {
+     for (int i=0; i<X;i++)
+     plik >> t[0][i] >> t[1][i] >> t[2][i];
+ }
+ plik.close();
+
+ int wiersz=0;
+ for (int i=0; i<X;i++)
+   if ((t[0][i] < t[1][i]) && (t[1][i] < t[2][i])) {
+     cout << t[0][i] << " " << t[1][i] << " " << t[2][i] << endl;
+     wiersz++;
+   }
+ fstream wynik;
+ wynik.open("wynik.txt", ios::out);
+ wynik << wiersz << endl;
+ wynik.close();
+ return 0;
+}
