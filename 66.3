@@ -1,0 +1,128 @@
+
+//Wrzucam to w bardzo okrojonej wersji bo pętle z wczytywaniem z pliku mi bugowało i nie nigdy się nie kończyła oraz wczytywały się inne liczby od tych któe byly w pliku trojki.txt
+
+
+
+#include <iostream>
+#include<fstream>
+
+using namespace std;
+
+int main(int argc, char** argv) {
+
+ifstream plik;
+int a,b,c;
+
+cout <<"Podaj liczbe A: ";
+cin >> a;
+cout <<"Podaj liczbe B: ";
+cin >> b;
+cout <<"Podaj liczbe C: ";
+cin >> c;
+
+cout<<"wczytano nastepujace liczby: "<<" "<<a<<" "<<b<<" "<<c<<endl<<endl<<endl;
+	
+   if ((a>b)&&(a>c)){
+	cout<<"Najwieksza liczba to liczba A: "<<a<<endl<<endl;
+   cout<<b*b<<"+"<<c*c<<"="<<a*a<<endl<<endl;
+   
+   if(b*b+c*c!=a*a)
+   cout<<"nie jest to trojkat prostokatny";
+   else cout <<a<<" "<<b<<" "<<c<<" "<<"WIERSZOK";
+}
+
+   if ((b>a)&&(b>c)){
+   	cout<<"Najwieksza liczba to liczba B: "<<b<<endl<<endl;
+   cout<<a*a<<"+"<<c*c<<"="<<b*b<<endl<<endl;
+   if(a*a+c*c!=b*b)
+   cout<<"nie jest to trojkat prostokatny";
+   else cout <<a<<" "<<b<<" "<<c<<" "<<"WIERSZOK";
+}
+   
+   if ((c>a)&&(c>b)){
+   	cout<<"Najwieksza liczba to liczba C: "<<c<<endl<<endl;
+   cout<<a*a<<"+"<<b*b<<"="<<c*c<<endl<<endl;
+   if(a*a+b*b!=c*c)
+   cout<<"nie jest to trojkat prostokatny";
+   else cout <<a<<" "<<b<<" "<<c<<" "<<"WIERSZOK";
+}	
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Tak to wyglada w źle działającej wersji
+/*
+#include <iostream>
+#include<fstream>
+
+using namespace std;
+
+int main(int argc, char** argv) {
+
+ifstream plik;
+int a,b,c;
+plik.open("trojkat.txt");
+
+while(!plik.eof())
+{
+
+plik >> a >> b >> c;
+cout<<"wczytano nastepujace liczby"<<endl
+<<a<<endl
+<<b<<endl
+<<c<<endl;
+	
+   if ((a>b)&&(a>c)){
+   cout<<b*b<<"+"<<c*c<<"="<<a*a<<endl;
+   if(b*b+c*c!=a*a)
+   cout<<"nie jest to trojkat prostokatny";
+   else cout <<a<<" "<<b<<" "<<c<<"WIERSZOK";
+}
+
+   if ((b>a)&&(b>c)){
+   cout<<a*a<<"+"<<c*c<<"="<<b*b<<endl;
+   if(a*a+c*c!=b*b)
+   cout<<"nie jest to trojkat prostokatny";
+   else cout <<a<<" "<<b<<" "<<c<<"WIERSZOK";
+}
+   
+   if ((c>a)&&(c>b)){
+   cout<<a*a<<"+"<<b*b<<"="<<c*c<<endl;
+   if(a*a+b*b!=c*c)
+   cout<<"nie jest to trojkat prostokatny";
+   else cout <<a<<" "<<b<<" "<<c<<"WIERSZOK";
+}
+}plik.close();
+
+   
+	
+	return 0;
+}
+
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
