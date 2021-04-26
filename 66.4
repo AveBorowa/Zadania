@@ -1,0 +1,37 @@
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+
+ 
+using namespace std;
+
+int main()
+{
+ int nr_linii=1;
+ string linia;
+ int a,b,c;
+ 
+ fstream file;
+ file.open("trojki.txt",ios::in);
+ 
+ if(file.good()==false)
+ {
+ 	cout<<"Otwarcie pliku nie udane!";
+ 	exit(0);
+ }
+ 
+ while(getline(file,linia))
+ {
+ 	file>>a>>b>>c;
+ 	if(a+b>c && a+c>b && b+c>a){
+ 		cout<<"Boki: "<<a<<" "<<b<<" "<<c<<" sa trojkatem!";
+	 }
+	 else cout<<"Boki: "<<a<<" "<<b<<" "<<c<<" nie sa trojkatem!";
+	 
+ 	
+ 	nr_linii++;
+ }
+ 
+ 
+ 
+}
